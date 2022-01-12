@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         private let pageLimit = 25
         private var currentYear: Int = 1970 //start from 1970
         
-        private var dates = [Date]() {
+        private var dates = [selfDefinedDate]() {
             didSet {
                 DispatchQueue.main.async { [weak self] in
                     self?.tableView.reloadData()

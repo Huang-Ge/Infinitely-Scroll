@@ -17,11 +17,11 @@ enum dateGenerateError: Error {
 struct DateManager {
     static let shared = DateManager()
     
-    func getDate(perPage: Int = 30, sinceDate: Int) -> [Date] {
+    func getDate(perPage: Int = 30, sinceDate: Int) -> [selfDefinedDate] {
         // 2
-        var Result:[Date] = []
+        var Result:[selfDefinedDate] = []
         for i in sinceDate..<(sinceDate + perPage) {
-            Result.append(Date(year: i))
+            Result.append(selfDefinedDate(year: i))
         }
         return Result
     }

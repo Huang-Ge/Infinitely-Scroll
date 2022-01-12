@@ -7,6 +7,11 @@
 
 import Foundation
 
-struct Date: Decodable {
+struct selfDefinedDate: Decodable {
     let year: Int
+}
+
+struct monthViewData {
+    let month: String
+    let days: [String]
 }
