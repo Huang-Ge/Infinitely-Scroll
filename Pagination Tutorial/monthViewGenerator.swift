@@ -10,8 +10,6 @@ import Foundation
 struct monthViewManager {
     static let shared = monthViewManager()
     
-    func getMonthData(perPage: Int = 3, sinceDate: Date) -> [selfDefinedDate] {
+    //func getMonthData(perPage: Int = 3, sinceDate: Date) -> [selfDefinedDate] {
         
-        
-    }
 }
