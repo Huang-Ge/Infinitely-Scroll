@@ -19,6 +19,7 @@
 		25ECF102278EDB93003DF77B /* Calendarhelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ECF101278EDB93003DF77B /* Calendarhelper.swift */; };
 		25ECF104278EDC6D003DF77B /* monthViewGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ECF103278EDC6D003DF77B /* monthViewGenerator.swift */; };
 		25ECF1062790337A003DF77B /* monthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ECF1052790337A003DF77B /* monthTableViewCell.swift */; };
+		25ECF1092790AC4B003DF77B /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ECF1082790AC4A003DF77B /* CalendarTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		25ECF101278EDB93003DF77B /* Calendarhelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendarhelper.swift; sourceTree = "<group>"; };
 		25ECF103278EDC6D003DF77B /* monthViewGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = monthViewGenerator.swift; sourceTree = "<group>"; };
 		25ECF1052790337A003DF77B /* monthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = monthTableViewCell.swift; sourceTree = "<group>"; };
+		25ECF1082790AC4A003DF77B /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +73,8 @@
 				259815C3278A027300B3CCC3 /* AppDelegate.swift */,
 				25ECF107279040BF003DF77B /* monthTableCell */,
 				259815C5278A027300B3CCC3 /* SceneDelegate.swift */,
-				259815C7278A027300B3CCC3 /* YearViewController.swift */,
 				259815C9278A027300B3CCC3 /* Main.storyboard */,
+				259815C7278A027300B3CCC3 /* YearViewController.swift */,
 				25ECF0FF278E4586003DF77B /* MonthViewController.swift */,
 				25ECF103278EDC6D003DF77B /* monthViewGenerator.swift */,
 				2598161B278B1F9600B3CCC3 /* selfDefinedDate.swift */,
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				25ECF1052790337A003DF77B /* monthTableViewCell.swift */,
+				25ECF1082790AC4A003DF77B /* CalendarTableViewCell.swift */,
 			);
 			path = monthTableCell;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				25ECF1062790337A003DF77B /* monthTableViewCell.swift in Sources */,
 				25ECF102278EDB93003DF77B /* Calendarhelper.swift in Sources */,
 				25ECF100278E4586003DF77B /* MonthViewController.swift in Sources */,
+				25ECF1092790AC4B003DF77B /* CalendarTableViewCell.swift in Sources */,
 				259815C8278A027300B3CCC3 /* YearViewController.swift in Sources */,
 				25ECF104278EDC6D003DF77B /* monthViewGenerator.swift in Sources */,
 				2598161C278B1F9600B3CCC3 /* selfDefinedDate.swift in Sources */,

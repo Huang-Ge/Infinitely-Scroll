@@ -9,15 +9,23 @@ import UIKit
 
 class MonthViewController: UIViewController {
     @IBOutlet weak var monthTableView: UITableView!
-    private var months = [monthViewData]() {
+//    private var months = [monthViewData]() {
+//        didSet {
+//            DispatchQueue.main.async { [weak self] in
+//                self?.monthTableView.reloadData()
+//            }
+//        }
+//    }
+    
+    let pageLimit = 2
+    var selectedDate = Date()
+    private var totalMonths = [Date](){
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.monthTableView.reloadData()
             }
         }
     }
-    
-    let pageLimit = 2
     
     enum TableSection: Int {
         case dateList
@@ -28,41 +36,62 @@ class MonthViewController: UIViewController {
         super.viewDidLoad()
         setupView()
 
-        // Do any additional setup after loading the view.
     }
     
     private func setupView() {
         title = "Months"
         //tableView.rowHeight = 64
+        fetchData()
+        totalMonths.append(selectedDate)
         monthTableView.dataSource = self
         monthTableView.delegate = self
+    }
+    
+    private func fetchData() {
+        for _ in 0..<3 {
+            let nextMonthDate = CalendarHelper().plusMonth(date: selectedDate)
+            totalMonths.append(nextMonthDate)
+            selectedDate = nextMonthDate
+        }
     }
 }
 
 extension MonthViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //TODO:: pass the data to monthTableViewCell
+        
         guard let cell = monthTableView.dequeueReusableCell(withIdentifier: "monthTableViewCell", for: indexPath) as? monthTableViewCell else { fatalError("Unable to create Table View Cell") }
-        print("cell generated")
+        let currentMonth = totalMonths[indexPath.row]
+        cell.setMonthView(for: currentMonth)
         return cell
     }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("return a int")
-        return 3
-//        guard let listSection = TableSection(rawValue: section) else { return 0 }
-//        switch listSection {
-//        case .dateList:
-//            return months.count
-//        case .loader:
-//            return months.count >= pageLimit ? 1 : 0
-//        }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 140
-//    }
+    // fetch generated data
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let section = TableSection(rawValue: indexPath.section) else { return }
+        guard !totalMonths.isEmpty else { return }
+
+        if section == .loader {
+            print("load new data..")
+            fetchData()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let listSection = TableSection(rawValue: section) else { return 0 }
+        switch listSection {
+        case .dateList:
+            return totalMonths.count
+        case .loader:
+            return totalMonths.count >= pageLimit ? 1 : 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 520
+    }
 }
