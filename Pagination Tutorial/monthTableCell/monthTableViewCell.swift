@@ -9,9 +9,12 @@ import UIKit
 
 class monthTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var dateCollectionView: UICollectionView!
+    @IBOutlet weak var monthLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        monthLabel.text = "Jan"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

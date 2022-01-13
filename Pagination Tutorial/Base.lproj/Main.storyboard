@@ -122,6 +122,10 @@
                                                 <constraint firstItem="pba-ia-VDt" firstAttribute="bottom" secondItem="ZKS-ob-aY9" secondAttribute="bottomMargin" constant="8" id="wdT-cU-DPi"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateCollectionView" destination="pba-ia-VDt" id="wOM-c8-AhI"/>
+                                            <outlet property="monthLabel" destination="q0b-QL-p1s" id="2mA-oZ-csL"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

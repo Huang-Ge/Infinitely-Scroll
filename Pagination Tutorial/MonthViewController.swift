@@ -26,14 +26,23 @@ class MonthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
 
         // Do any additional setup after loading the view.
+    }
+    
+    private func setupView() {
+        title = "Months"
+        //tableView.rowHeight = 64
+        monthTableView.dataSource = self
+        monthTableView.delegate = self
     }
 }
 
 extension MonthViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = monthTableView.dequeueReusableCell(withIdentifier: "monthTableViewCell", for: indexPath) as? monthTableViewCell else { fatalError("Unable to create Table View Cell") }
+        print("cell generated")
         return cell
     }
     
@@ -42,6 +51,7 @@ extension MonthViewController: UITableViewDelegate, UITableViewDataSource {
 //    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("return a int")
         return 3
 //        guard let listSection = TableSection(rawValue: section) else { return 0 }
 //        switch listSection {
