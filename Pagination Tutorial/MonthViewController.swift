@@ -41,8 +41,8 @@ class MonthViewController: UIViewController {
     private func setupView() {
         title = "Months"
         //tableView.rowHeight = 64
-        fetchData()
         totalMonths.append(selectedDate)
+        fetchData()
         monthTableView.dataSource = self
         monthTableView.delegate = self
     }

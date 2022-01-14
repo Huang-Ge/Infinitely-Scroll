@@ -29,7 +29,7 @@ class monthTableViewCell: UITableViewCell {
     {
         //TODO:: Find a better way to present days
         let availableWidth = dateCollectionView.bounds.inset(by: dateCollectionView.layoutMargins).width
-        let availableHeight = dateCollectionView.bounds.inset(by: dateCollectionView.layoutMargins).height
+        //let availableHeight = dateCollectionView.bounds.inset(by: dateCollectionView.layoutMargins).height
         let width = (availableWidth / CGFloat(9)).rounded(.down)
         let height = (availableWidth / CGFloat(9)).rounded(.down)
         
