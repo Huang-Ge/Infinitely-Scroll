@@ -28,8 +28,10 @@ class monthTableViewCell: UITableViewCell {
     func setCellsView()
     {
         //TODO:: Find a better way to present days
-        let width = (dateCollectionView.frame.size.width - 2) / 8
-        let height = (dateCollectionView.frame.size.height - 2) / 8
+        let availableWidth = dateCollectionView.bounds.inset(by: dateCollectionView.layoutMargins).width
+        let availableHeight = dateCollectionView.bounds.inset(by: dateCollectionView.layoutMargins).height
+        let width = (availableWidth / CGFloat(9)).rounded(.down)
+        let height = (availableWidth / CGFloat(9)).rounded(.down)
         
         let flowLayout = dateCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.itemSize = CGSize(width: width, height: height)

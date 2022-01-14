@@ -76,7 +76,6 @@ extension MonthViewController: UITableViewDelegate, UITableViewDataSource {
         guard !totalMonths.isEmpty else { return }
 
         if section == .loader {
-            print("load new data..")
             fetchData()
         }
     }
@@ -92,6 +91,6 @@ extension MonthViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 520
+        return UIScreen.main.bounds.size.height / 2.5
     }
 }
