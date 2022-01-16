@@ -15,6 +15,16 @@ class CalendarHelper
         return calendar.date(byAdding: .month, value: -1, to: date)!
     }
     
+    func plusYear(date: Date) -> Date
+    {
+        return calendar.date(byAdding: .year, value: 1, to: date)!
+    }
+    
+    func minusYear(date: Date) -> Date
+    {
+        return calendar.date(byAdding: .year, value: -1, to: date)!
+    }
+    
     func monthString(date: Date) -> String
     {
         let dateFormatter = DateFormatter()
@@ -58,6 +68,13 @@ class CalendarHelper
         let components = calendar.dateComponents([.month], from: previousDate, to: nextDate)
         guard let months = components.month else{ return 0}
         return months
+    }
+    
+    func yearsBetweenTwoDates(previousDate: Date, to nextDate: Date) -> Int
+    {
+        let components = calendar.dateComponents([.year], from: previousDate, to: nextDate)
+        guard let years = components.year else{ return 0}
+        return years
     }
     
 }

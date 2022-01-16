@@ -80,7 +80,7 @@ extension singleMonthCollectionViewCell: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "daysInMonthCollectionViewCell", for: indexPath) as! daysInMonthCollectionViewCell
         cell.date.text = totalSquares[indexPath.item]
-        print("Displaying daysInMonthCollectionViewCell")
+        //print("Displaying daysInMonthCollectionViewCell")
         return cell
     }
     

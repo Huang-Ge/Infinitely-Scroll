@@ -9,14 +9,6 @@ import UIKit
 
 class MonthViewController: UIViewController {
     @IBOutlet weak var monthTableView: UITableView!
-//    private var months = [monthViewData]() {
-//        didSet {
-//            DispatchQueue.main.async { [weak self] in
-//                self?.monthTableView.reloadData()
-//            }
-//        }
-//    }
-    
     let pageLimit = 2
     var selectedDate = Date(timeIntervalSince1970: 0)
     private var totalMonths = [Date](){
@@ -105,6 +97,6 @@ extension MonthViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.main.bounds.size.height / 2.5
+        return UIScreen.main.bounds.size.height / 3
     }
 }

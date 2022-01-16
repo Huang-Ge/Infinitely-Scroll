@@ -9,6 +9,14 @@ import UIKit
 
 class threeMonthTableViewCell: UITableViewCell {
     @IBOutlet weak var monthCollectionView: UICollectionView!
+    var monthsInQuarter = [Date]()
+    {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.monthCollectionView.reloadData()
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,11 +34,31 @@ class threeMonthTableViewCell: UITableViewCell {
         //TODO:: Find a better way to present days
         let availableWidth = monthCollectionView.bounds.inset(by: monthCollectionView.layoutMargins).width
         //let availableHeight = dateCollectionView.bounds.inset(by: dateCollectionView.layoutMargins).height
-        let width = (availableWidth / CGFloat(3)).rounded(.down)
-        let height = (availableWidth / CGFloat(3)).rounded(.down)
+        let width = (availableWidth / CGFloat(4)).rounded(.down)
+        let height = (availableWidth / CGFloat(4)).rounded(.down)
         
         let flowLayout = monthCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.itemSize = CGSize(width: width, height: height)
+    }
+    
+    func setYearView(for selectedDate: Date, inQuarter quarter: Int)
+    {
+        //Date starts from January
+        monthsInQuarter.removeAll()
+        let monthsToAdd = 3 * quarter
+        var currentMonth = selectedDate
+        //print("before set up month for: \(currentMonth.description), monthsToAdd: \(monthsToAdd) in quarter: \(quarter)")
+        for _ in 0..<monthsToAdd { currentMonth = CalendarHelper().plusMonth(date: currentMonth) }
+        //print("after set up month for: \(currentMonth.description), monthsToAdd: \(monthsToAdd) in quarter: \(quarter)")
+        for _ in 0..<3
+        {
+            monthsInQuarter.append(currentMonth)
+            currentMonth = CalendarHelper().plusMonth(date: currentMonth)
+        }
+        //print("after set up month for: \(currentMonth.description), in quarter: \(quarter)")
+
+
+        monthCollectionView.reloadData()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -48,10 +76,12 @@ extension threeMonthTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "singleMonthCollectionViewCell", for: indexPath) as! singleMonthCollectionViewCell
-        cell.setMonthView(for: Date())
-        print("Displaying singleMonthCollectionViewCell")
+        cell.setMonthView(for: monthsInQuarter[indexPath.item])
+        //print("current monthsInQuarter: \(monthsInQuarter)")
+        //print("Displaying number \(indexPath.item) of Month in Cell: \(monthsInQuarter[indexPath.item])")
         return cell
     }
     
+    //func collectionView
     
 }
