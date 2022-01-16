@@ -30,6 +30,13 @@ class ViewController: UIViewController {
             super.viewDidLoad()
             setupView()
             fetchData()
+            fetchData()
+            
+            //show this year
+            if dates.count > 51{
+                let indexPath = IndexPath(row: 51, section: 0)
+                tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
         }
         
         private func setupView() {
@@ -83,7 +90,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         guard !dates.isEmpty else { return }
 
         if section == .loader {
-            print("load new data..")
+            //print("load new data..")
             fetchData()
         }
     }

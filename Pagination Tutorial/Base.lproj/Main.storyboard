@@ -18,33 +18,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hHE-NU-rZL">
-                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dob-b6-sn9">
-                                <rect key="frame" x="303" y="103" width="101" height="31"/>
-                                <accessibility key="accessibilityConfiguration" label="Month"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Month View"/>
-                                <connections>
-                                    <segue destination="wGF-Lc-MM9" kind="show" id="QqP-bA-pJw"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hHE-NU-rZL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="6kL-2n-i5I"/>
+                            <constraint firstItem="hHE-NU-rZL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6kL-2n-i5I"/>
                             <constraint firstItem="hHE-NU-rZL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7Rq-bU-lJ5"/>
-                            <constraint firstItem="dob-b6-sn9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ILW-WX-eqL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hHE-NU-rZL" secondAttribute="trailing" id="JdW-hp-p2Z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dob-b6-sn9" secondAttribute="trailing" constant="10" id="QtV-FD-MC6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hHE-NU-rZL" secondAttribute="bottom" id="Ryx-8j-c8L"/>
-                            <constraint firstItem="hHE-NU-rZL" firstAttribute="top" secondItem="dob-b6-sn9" secondAttribute="bottom" constant="4" id="zk8-Z6-xV2"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="5Sf-hW-PdF"/>
+                    <navigationItem key="navigationItem" id="5Sf-hW-PdF">
+                        <barButtonItem key="leftBarButtonItem" title="Year" id="5fO-z9-Otl">
+                            <connections>
+                                <segue destination="Rtx-r4-r5J" kind="show" id="o5E-nm-T1J"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Month" id="eDG-Of-9dk">
+                            <connections>
+                                <segue destination="wGF-Lc-MM9" kind="show" id="KlV-n3-7uS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="hHE-NU-rZL" id="wbM-uJ-Nra"/>
@@ -53,6 +52,135 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="67.633928571428569"/>
+        </scene>
+        <!--Year View Controller-->
+        <scene sceneID="wqV-UJ-vgA">
+            <objects>
+                <viewController id="Rtx-r4-r5J" customClass="YearViewController" customModule="Pagination_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9U2-df-Hl6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="r5g-4a-avZ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="threeMonthTableViewCell" rowHeight="188" id="Qgq-sb-Fxg" customClass="threeMonthTableViewCell" customModule="Pagination_Tutorial" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="188"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qgq-sb-Fxg" id="Slj-zm-dEx">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="188"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PeF-A9-5PJ">
+                                                    <rect key="frame" x="20" y="11" width="374" height="166"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c0K-bj-wWv">
+                                                        <size key="itemSize" width="128" height="128"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="singleMonthCollectionViewCell" id="yIJ-gl-xp2" customClass="singleMonthCollectionViewCell" customModule="Pagination_Tutorial" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nok-vK-HGw">
+                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nf-Ez-XTg">
+                                                                        <rect key="frame" x="5" y="0.0" width="42" height="21"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UfV-M8-8Ap">
+                                                                        <rect key="frame" x="0.0" y="21" width="128" height="107"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BHm-GZ-kP3">
+                                                                            <size key="itemSize" width="128" height="128"/>
+                                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                        </collectionViewFlowLayout>
+                                                                        <cells>
+                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="daysInMonthCollectionViewCell" id="ZX3-QE-8Yk" customClass="daysInMonthCollectionViewCell" customModule="Pagination_Tutorial" customModuleProvider="target">
+                                                                                <rect key="frame" x="16.5" y="0.0" width="95" height="62"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fw7-eh-4Ug">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="95" height="62"/>
+                                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                                    <subviews>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGn-yk-7qT">
+                                                                                            <rect key="frame" x="26.5" y="20.5" width="42" height="21"/>
+                                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                            <nil key="textColor"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                    </subviews>
+                                                                                    <constraints>
+                                                                                        <constraint firstItem="zGn-yk-7qT" firstAttribute="centerY" secondItem="fw7-eh-4Ug" secondAttribute="centerY" id="g2c-MZ-jmM"/>
+                                                                                        <constraint firstItem="zGn-yk-7qT" firstAttribute="centerX" secondItem="fw7-eh-4Ug" secondAttribute="centerX" id="yEi-18-ZiE"/>
+                                                                                    </constraints>
+                                                                                </collectionViewCellContentView>
+                                                                                <size key="customSize" width="95" height="62"/>
+                                                                                <connections>
+                                                                                    <outlet property="date" destination="zGn-yk-7qT" id="53W-TX-NDv"/>
+                                                                                </connections>
+                                                                            </collectionViewCell>
+                                                                        </cells>
+                                                                    </collectionView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="UfV-M8-8Ap" secondAttribute="bottom" id="2jR-UM-34q"/>
+                                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Nf-Ez-XTg" secondAttribute="trailing" id="CxJ-XF-tFm"/>
+                                                                    <constraint firstItem="8Nf-Ez-XTg" firstAttribute="leading" secondItem="nok-vK-HGw" secondAttribute="leading" constant="5" id="Eph-Sx-xMt"/>
+                                                                    <constraint firstItem="8Nf-Ez-XTg" firstAttribute="top" secondItem="nok-vK-HGw" secondAttribute="top" id="U76-Fv-yVx"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="UfV-M8-8Ap" secondAttribute="trailing" id="dno-af-2P2"/>
+                                                                    <constraint firstItem="UfV-M8-8Ap" firstAttribute="top" secondItem="8Nf-Ez-XTg" secondAttribute="bottom" id="kZh-vS-gJZ"/>
+                                                                    <constraint firstItem="UfV-M8-8Ap" firstAttribute="leading" secondItem="nok-vK-HGw" secondAttribute="leading" id="xOc-YO-tg3"/>
+                                                                </constraints>
+                                                            </collectionViewCellContentView>
+                                                            <connections>
+                                                                <outlet property="daysInMonthCollectionView" destination="UfV-M8-8Ap" id="qVu-DF-lxG"/>
+                                                                <outlet property="monthLabel" destination="8Nf-Ez-XTg" id="8cE-6k-N0K"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PeF-A9-5PJ" firstAttribute="top" secondItem="Slj-zm-dEx" secondAttribute="topMargin" id="ArT-Nl-JBK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="PeF-A9-5PJ" secondAttribute="bottom" id="Gjh-yg-g11"/>
+                                                <constraint firstItem="PeF-A9-5PJ" firstAttribute="leading" secondItem="Slj-zm-dEx" secondAttribute="leadingMargin" id="SUP-5k-yq7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PeF-A9-5PJ" secondAttribute="trailing" id="gRR-CP-EE0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="monthCollectionView" destination="PeF-A9-5PJ" id="GF2-ug-fM5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rh0-yx-DVN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="r5g-4a-avZ" firstAttribute="leading" secondItem="rh0-yx-DVN" secondAttribute="leading" id="13k-Wq-i59"/>
+                            <constraint firstItem="r5g-4a-avZ" firstAttribute="trailing" secondItem="rh0-yx-DVN" secondAttribute="trailing" id="4Ou-nu-Wdu"/>
+                            <constraint firstItem="rh0-yx-DVN" firstAttribute="bottom" secondItem="r5g-4a-avZ" secondAttribute="bottom" id="UdG-Kq-HC8"/>
+                            <constraint firstItem="r5g-4a-avZ" firstAttribute="top" secondItem="rh0-yx-DVN" secondAttribute="top" id="fCN-Og-2T2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BLo-pN-GjK"/>
+                    <connections>
+                        <outlet property="yearTableView" destination="r5g-4a-avZ" id="k8b-12-MS8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdH-lw-ASS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753.6231884057972" y="-617.41071428571422"/>
         </scene>
         <!--Month View Controller-->
         <scene sceneID="10W-DH-34v">

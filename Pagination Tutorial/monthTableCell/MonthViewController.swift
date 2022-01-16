@@ -18,7 +18,7 @@ class MonthViewController: UIViewController {
 //    }
     
     let pageLimit = 2
-    var selectedDate = Date()
+    var selectedDate = Date(timeIntervalSince1970: 0)
     private var totalMonths = [Date](){
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -42,9 +42,23 @@ class MonthViewController: UIViewController {
         title = "Months"
         //tableView.rowHeight = 64
         totalMonths.append(selectedDate)
-        fetchData()
+        generateInitialData()
         monthTableView.dataSource = self
         monthTableView.delegate = self
+        let now = Date()
+        let numOfMonths = CalendarHelper().monthsBetweenTwoDates(previousDate: Date(timeIntervalSince1970: 0), to: now)
+        if totalMonths.count > numOfMonths{
+            let indexPath = IndexPath(row: numOfMonths, section: 0)
+            monthTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
+    }
+    
+    private func generateInitialData() {
+        for _ in 0..<630 {
+            let nextMonthDate = CalendarHelper().plusMonth(date: selectedDate)
+            totalMonths.append(nextMonthDate)
+            selectedDate = nextMonthDate
+        }
     }
     
     private func fetchData() {

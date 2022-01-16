@@ -53,4 +53,11 @@ class CalendarHelper
         return components.weekday! - 1
     }
     
+    func monthsBetweenTwoDates(previousDate: Date, to nextDate: Date) -> Int
+    {
+        let components = calendar.dateComponents([.month], from: previousDate, to: nextDate)
+        guard let months = components.month else{ return 0}
+        return months
+    }
+    
 }
