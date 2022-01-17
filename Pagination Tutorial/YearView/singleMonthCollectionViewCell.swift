@@ -30,7 +30,7 @@ class singleMonthCollectionViewCell: UICollectionViewCell {
         //TODO:: Find a better way to present days
         let availableWidth = daysInMonthCollectionView.bounds.inset(by: daysInMonthCollectionView.layoutMargins).width
         //let availableHeight = dateCollectionView.bounds.inset(by: dateCollectionView.layoutMargins).height
-        let width = (availableWidth / CGFloat(9)).rounded(.down)
+        let width = (availableWidth / CGFloat(20)).rounded(.down)
         let height = (availableWidth / CGFloat(9)).rounded(.down)
         
         let flowLayout = daysInMonthCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -80,7 +80,7 @@ extension singleMonthCollectionViewCell: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "daysInMonthCollectionViewCell", for: indexPath) as! daysInMonthCollectionViewCell
         cell.date.text = totalSquares[indexPath.item]
-        //print("Displaying daysInMonthCollectionViewCell")
+        cell.date.font = UIFont.systemFont(ofSize: 10.0)
         return cell
     }
     

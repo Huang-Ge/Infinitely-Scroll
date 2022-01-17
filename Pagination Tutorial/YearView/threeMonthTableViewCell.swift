@@ -33,9 +33,9 @@ class threeMonthTableViewCell: UITableViewCell {
     {
         //TODO:: Find a better way to present days
         let availableWidth = monthCollectionView.bounds.inset(by: monthCollectionView.layoutMargins).width
-        //let availableHeight = dateCollectionView.bounds.inset(by: dateCollectionView.layoutMargins).height
-        let width = (availableWidth / CGFloat(4)).rounded(.down)
-        let height = (availableWidth / CGFloat(4)).rounded(.down)
+        let availableHeight = monthCollectionView.bounds.inset(by: monthCollectionView.layoutMargins).height
+        let width = ((availableWidth + 70) / CGFloat(4)).rounded(.down)
+        let height = ((availableHeight + 100) / CGFloat(1)).rounded(.down)
         
         let flowLayout = monthCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.itemSize = CGSize(width: width, height: height)
