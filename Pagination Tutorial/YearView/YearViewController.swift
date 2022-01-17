@@ -18,6 +18,11 @@ class YearViewController: UIViewController {
             }
         }
     }
+    enum TableSection: Int {
+        case dateList
+        case loader
+    }
+    
     var currentYear: Date = Date(timeIntervalSince1970: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +31,6 @@ class YearViewController: UIViewController {
         totalYears.append(currentYear)
         generateInitialData()
         
-        
-
     }
     
     private func generateInitialData() {
@@ -41,12 +44,26 @@ class YearViewController: UIViewController {
         let indexPath = IndexPath(row: numOfYears * 4, section: 0)
         yearTableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
+    
+    private func fetchData() {
+        for _ in 0..<3 {
+            let nextYear = CalendarHelper().plusYear(date: currentYear)
+            totalYears.append(nextYear)
+            currentYear = nextYear
+        }
+    }
 
 }
 
 extension YearViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return totalYears.count * 4
+        guard let listSection = TableSection(rawValue: section) else { return 0 }
+        switch listSection {
+        case .dateList:
+            return totalYears.count * 4
+        case .loader:
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,7 +77,17 @@ extension YearViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
+    }
+    
+    // fetch generated data
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let section = TableSection(rawValue: indexPath.section) else { return }
+        guard !totalYears.isEmpty else { return }
+
+        if section == .loader {
+            fetchData()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

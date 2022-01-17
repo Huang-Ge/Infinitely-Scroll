@@ -80,7 +80,7 @@ extension singleMonthCollectionViewCell: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "daysInMonthCollectionViewCell", for: indexPath) as! daysInMonthCollectionViewCell
         cell.date.text = totalSquares[indexPath.item]
-        cell.date.font = UIFont.systemFont(ofSize: 5.0)
+        cell.date.font = UIFont.boldSystemFont(ofSize: 5.0)
         return cell
     }
     

@@ -9,7 +9,6 @@ import UIKit
 
 class MonthViewController: UIViewController {
     @IBOutlet weak var monthTableView: UITableView!
-    let pageLimit = 2
     var selectedDate = Date(timeIntervalSince1970: 0)
     private var totalMonths = [Date](){
         didSet {
@@ -92,7 +91,7 @@ extension MonthViewController: UITableViewDelegate, UITableViewDataSource {
         case .dateList:
             return totalMonths.count
         case .loader:
-            return totalMonths.count >= pageLimit ? 1 : 0
+            return 1
         }
     }
     
