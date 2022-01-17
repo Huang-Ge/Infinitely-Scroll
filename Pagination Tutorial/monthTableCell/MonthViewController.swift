@@ -97,6 +97,6 @@ extension MonthViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.main.bounds.size.height / 3
+        return UIScreen.main.bounds.size.height / 2.5
     }
 }

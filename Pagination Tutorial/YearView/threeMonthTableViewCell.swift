@@ -35,7 +35,7 @@ class threeMonthTableViewCell: UITableViewCell {
         let availableWidth = monthCollectionView.bounds.inset(by: monthCollectionView.layoutMargins).width
         let availableHeight = monthCollectionView.bounds.inset(by: monthCollectionView.layoutMargins).height
         let width = ((availableWidth + 70) / CGFloat(4)).rounded(.down)
-        let height = ((availableHeight + 100) / CGFloat(1)).rounded(.down)
+        let height = ((availableHeight) / CGFloat(1)).rounded(.down)
         
         let flowLayout = monthCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.itemSize = CGSize(width: width, height: height)

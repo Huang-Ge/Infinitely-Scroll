@@ -65,7 +65,7 @@ class singleMonthCollectionViewCell: UICollectionViewCell {
             print("remove something now...")
             for _ in 0..<7 { totalSquares.removeFirst()}
         }
-        monthLabel.text = CalendarHelper().monthString(date: selectedDate)
+        monthLabel.text = CalendarHelper().monthString(date: selectedDate).prefix(3)
             + " " + CalendarHelper().yearString(date: selectedDate)
         daysInMonthCollectionView.reloadData()
         //self.tableView.reloadData()
@@ -80,7 +80,7 @@ extension singleMonthCollectionViewCell: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "daysInMonthCollectionViewCell", for: indexPath) as! daysInMonthCollectionViewCell
         cell.date.text = totalSquares[indexPath.item]
-        cell.date.font = UIFont.systemFont(ofSize: 10.0)
+        cell.date.font = UIFont.systemFont(ofSize: 5.0)
         return cell
     }
     
