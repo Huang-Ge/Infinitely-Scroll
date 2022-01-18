@@ -69,6 +69,7 @@ extension YearViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = yearTableView.dequeueReusableCell(withIdentifier: "threeMonthTableViewCell", for: indexPath) as! threeMonthTableViewCell
         //print("Indexpath.row: \(indexPath.row)")
+        if indexPath.section == 1 { return cell}
         let nowYear = totalYears[indexPath.row / 4]
         let quarter = indexPath.row % 4
         //print("set up year for: \(nowYear.description), indexPath.row: \(indexPath.row), in quarter: \(quarter)")
