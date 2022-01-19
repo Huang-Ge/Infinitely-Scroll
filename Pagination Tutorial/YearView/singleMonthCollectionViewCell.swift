@@ -30,11 +30,13 @@ class singleMonthCollectionViewCell: UICollectionViewCell {
         //TODO:: Find a better way to present days
         let availableWidth = daysInMonthCollectionView.bounds.inset(by: daysInMonthCollectionView.layoutMargins).width
         //let availableHeight = dateCollectionView.bounds.inset(by: dateCollectionView.layoutMargins).height
-        let width = (availableWidth / CGFloat(20)).rounded(.down)
+        let width = (availableWidth / CGFloat(9)).rounded(.down)
         let height = (availableWidth / CGFloat(9)).rounded(.down)
         
         let flowLayout = daysInMonthCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.itemSize = CGSize(width: width, height: height)
+        flowLayout.minimumInteritemSpacing = 2
+        flowLayout.minimumLineSpacing = 5
     }
     
     func setMonthView(for selectedDate: Date)
@@ -67,6 +69,7 @@ class singleMonthCollectionViewCell: UICollectionViewCell {
         }
         monthLabel.text = CalendarHelper().monthString(date: selectedDate).prefix(3)
             + " " + CalendarHelper().yearString(date: selectedDate)
+        
         daysInMonthCollectionView.reloadData()
         //self.tableView.reloadData()
     }
@@ -80,7 +83,7 @@ extension singleMonthCollectionViewCell: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "daysInMonthCollectionViewCell", for: indexPath) as! daysInMonthCollectionViewCell
         cell.date.text = totalSquares[indexPath.item]
-        cell.date.font = UIFont.boldSystemFont(ofSize: 5.0)
+        cell.date.font = UIFont.boldSystemFont(ofSize: 10.0)
         return cell
     }
     

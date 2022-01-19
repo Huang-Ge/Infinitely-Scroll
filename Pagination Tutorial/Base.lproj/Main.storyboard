@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oh6-i5-kiy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oh6-i5-kiy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -90,13 +90,13 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nf-Ez-XTg">
-                                                                        <rect key="frame" x="5" y="0.0" width="35.5" height="17"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <rect key="frame" x="5" y="0.0" width="41.5" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UfV-M8-8Ap">
-                                                                        <rect key="frame" x="0.0" y="17" width="128" height="111"/>
+                                                                        <rect key="frame" x="0.0" y="25.5" width="128" height="102.5"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BHm-GZ-kP3">
                                                                             <size key="itemSize" width="128" height="128"/>
@@ -106,8 +106,8 @@
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
                                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="daysInMonthCollectionViewCell" id="ZX3-QE-8Yk" customClass="daysInMonthCollectionViewCell" customModule="Pagination_Tutorial" customModuleProvider="target">
-                                                                                <rect key="frame" x="16.5" y="0.0" width="95" height="62"/>
-                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <rect key="frame" x="17" y="0.0" width="95" height="62"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fw7-eh-4Ug">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="95" height="62"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
@@ -138,7 +138,7 @@
                                                                     <constraint firstItem="8Nf-Ez-XTg" firstAttribute="leading" secondItem="nok-vK-HGw" secondAttribute="leading" constant="5" id="Eph-Sx-xMt"/>
                                                                     <constraint firstItem="8Nf-Ez-XTg" firstAttribute="top" secondItem="nok-vK-HGw" secondAttribute="top" id="U76-Fv-yVx"/>
                                                                     <constraint firstAttribute="trailing" secondItem="UfV-M8-8Ap" secondAttribute="trailing" id="dno-af-2P2"/>
-                                                                    <constraint firstItem="UfV-M8-8Ap" firstAttribute="top" secondItem="8Nf-Ez-XTg" secondAttribute="bottom" id="kZh-vS-gJZ"/>
+                                                                    <constraint firstItem="UfV-M8-8Ap" firstAttribute="top" secondItem="8Nf-Ez-XTg" secondAttribute="bottom" constant="5" id="kZh-vS-gJZ"/>
                                                                     <constraint firstItem="UfV-M8-8Ap" firstAttribute="leading" secondItem="nok-vK-HGw" secondAttribute="leading" id="xOc-YO-tg3"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
